@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Método Despertar: 21 dias de autoconhecimento e despertar espiritual conduzidos por Marcela — meditação, mapa de padrões e rituais simples, online e no seu ritmo.">
+  <title>Método Despertar | Volte para quem você é</title>
+  <style>
+    /* =========================================================
+       CONFIGURAÇÃO VISUAL — personalize estas variáveis
+       ========================================================= */
+    :root {
+      --bg: #08080d;
+      --surface: #13131a;
+      --surface-2: #1b1b24;
+      --text: #f8f6f1;
+      --muted: #b4b0be;
+      --accent: #e3c26b;
+      --accent-text: #15120a;
+      --accent-2: #9b8cff;
+      --border: rgba(255,255,255,.12);
+      --max-width: 1120px;
+      --radius: 20px;
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .container { width: min(var(--max-width), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: clamp(64px, 9vw, 112px) 0; }
+    .section--alt { background: rgba(255,255,255,.025); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--accent); font-size: .78rem; font-weight: 800;
+      letter-spacing: .13em; text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.1; letter-spacing: -.035em; }
+    h1 { font-size: clamp(2.5rem, 6vw, 5rem); max-width: 900px; margin: 18px auto; }
+    h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; }
+    p { color: var(--muted); }
+    .lead { font-size: clamp(1.05rem, 2vw, 1.25rem); max-width: 760px; margin-inline: auto; }
+    .center { text-align: center; }
+    .accent { color: var(--accent); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 56px; padding: 15px 26px; border: 0; border-radius: 999px;
+      background: var(--accent); color: var(--accent-text); text-decoration: none;
+      font-weight: 900; text-align: center; cursor: pointer;
+      box-shadow: 0 10px 30px rgba(227,194,107,.18);
+      transition: transform .2s ease, filter .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .button--secondary { background: transparent; color: var(--text); border: 1px solid var(--border); box-shadow: none; }
+    .button-wrap { display: flex; justify-content: center; margin-top: 28px; }
+    .notice {
+      padding: 11px 16px; text-align: center; font-size: .85rem; font-weight: 800;
+      background: var(--accent); color: var(--accent-text);
+    }
+    .hero { padding: clamp(44px, 8vw, 90px) 0 72px; overflow: hidden; position: relative; }
+    .hero::before {
+      content: ""; position: absolute; inset: -40% 50% auto; translate: 50% 0;
+      width: 900px; height: 900px; pointer-events: none;
+      background: radial-gradient(circle, rgba(155,140,255,.16), transparent 62%);
+    }
+    .hero__inner { text-align: center; position: relative; }
+    .hero__image {
+      width: min(100%, 960px); aspect-ratio: 16/7; margin: 34px auto 0;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      object-fit: cover; object-position: center 32%;
+      background: linear-gradient(135deg, #24242a, #101013);
+      box-shadow: var(--shadow);
+    }
+    .hero__placeholder {
+      width: min(100%, 960px); aspect-ratio: 16/7; margin: 34px auto 0;
+      display: grid; place-items: center; border: 1px dashed #666;
+      border-radius: var(--radius); color: var(--muted);
+      background: radial-gradient(circle at 50% 35%, #303039, #111114 70%);
+    }
+    .trust-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; margin-top: 22px; color: var(--muted); font-size: .88rem; }
+    .grid { display: grid; gap: 20px; }
+    .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .card {
+      padding: 24px; border: 1px solid var(--border); border-radius: var(--radius);
+      background: var(--surface); min-width: 0;
+    }
+    .quote-card { display: flex; flex-direction: column; gap: 14px; }
+    .quote-card blockquote { margin: 0; color: var(--text); font-size: 1rem; }
+    .quote-card__person { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+    .avatar {
+      width: 46px; height: 46px; border-radius: 50%; flex: 0 0 auto;
+      display: grid; place-items: center; font-weight: 800; color: var(--accent);
+      background: var(--surface-2); border: 1px solid var(--border);
+    }
+    .person-name { font-weight: 800; color: var(--text); margin: 0; }
+    .person-meta { font-size: .82rem; color: var(--muted); margin: 0; }
+    .stars { color: var(--accent); letter-spacing: .1em; }
+    .carousel { position: relative; }
+    .carousel-track {
+      display: grid; grid-auto-columns: calc((100% - 40px) / 3);
+      grid-auto-flow: column; gap: 20px; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      padding: 3px 2px 16px; scrollbar-width: thin;
+    }
+    .carousel-track > * { scroll-snap-align: start; }
+    .carousel-controls { display: flex; justify-content: center; gap: 12px; margin-top: 14px; }
+    .carousel-button {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--border);
+      background: var(--surface-2); color: var(--text); cursor: pointer;
+    }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
+    .visual-img {
+      width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center;
+      border-radius: var(--radius); border: 1px solid var(--border);
+      background: var(--surface-2); box-shadow: var(--shadow);
+    }
+    .visual-placeholder {
+      min-height: 300px; display: grid; place-items: center; text-align: center;
+      padding: 24px; border-radius: var(--radius); border: 1px dashed #686873;
+      color: var(--muted); background: radial-gradient(circle at 30% 20%, #303039, #151519 70%);
+    }
+    .check-list, .plain-list { list-style: none; padding: 0; margin: 24px 0 0; }
+    .check-list li, .plain-list li { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .check-list li::before { content: "✓"; color: var(--accent); font-weight: 900; margin-right: 12px; }
+    .number { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 12px; background: var(--accent); color: var(--accent-text); font-weight: 900; margin-bottom: 14px; }
+    .module-card { padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+    .module-card p { margin-bottom: 0; }
+    .phase-tag { display: inline-block; margin-bottom: 12px; font-size: .74rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); }
+    .bonus-card { overflow: hidden; padding: 0; }
+    .bonus-card__image { min-height: 180px; display: grid; place-items: center; background: var(--surface-2); border-bottom: 1px solid var(--border); color: var(--muted); padding: 20px; }
+    .bonus-card__body { padding: 24px; }
+    .price-card {
+      width: min(100%, 720px); margin: 28px auto 0; padding: clamp(24px, 5vw, 48px);
+      border: 1px solid rgba(227,194,107,.5); border-radius: 28px;
+      background: linear-gradient(160deg, #221f14, #131318 65%); box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .offer-tag { display: inline-block; padding: 7px 13px; border-radius: 999px; background: var(--accent); color: var(--accent-text); font-size: .8rem; font-weight: 900; }
+    .old-price { text-decoration: line-through; color: var(--muted); margin: 18px 0 0; }
+    .price-caption { color: var(--text); margin: 4px 0; font-weight: 700; }
+    .installments { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 950; line-height: 1.15; margin: 8px 0; color: var(--accent); }
+    .payment-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .payment-list span { padding: 7px 12px; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-size: .82rem; }
+    .community { margin-top: 36px; text-align: center; }
+    .community__number { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 950; color: var(--accent); margin-bottom: 0; }
+    .guarantee { max-width: 850px; margin: 0 auto; text-align: center; }
+    .guarantee__seal { width: 120px; height: 120px; margin: 0 auto 24px; border: 2px solid var(--accent); border-radius: 50%; display: grid; place-items: center; text-align: center; color: var(--accent); font-size: .78rem; font-weight: 900; transform: rotate(-8deg); }
+    .expert-photo { width: 100%; max-width: 440px; aspect-ratio: 1/1; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface-2); box-shadow: var(--shadow); }
+    .faq { max-width: 850px; margin: 32px auto 0; }
+    details { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    summary { cursor: pointer; font-weight: 800; color: var(--text); list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font-size: 1.5rem; color: var(--accent); }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 14px 0 0; }
+    footer { padding: 30px 0; border-top: 1px solid var(--border); text-align: center; font-size: .85rem; }
+    footer p { margin: 4px 0; }
+    .small-note { font-size: .82rem; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.is-visible { opacity: 1; transform: none; }
+    @media (max-width: 800px) {
+      .grid--3 { grid-template-columns: 1fr; }
+      .grid--2, .two-col { grid-template-columns: 1fr; }
+      .carousel-track { grid-auto-columns: 82%; }
+      .hero__image, .hero__placeholder { aspect-ratio: 4/3; }
+      .two-col--reverse > :first-child { order: 2; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- CABEÇALHO / TARJA DE URGÊNCIA: use urgência verdadeira e verificável -->
+  <div class="notice" role="status">
+    Turma de Outono · Inscrições abertas até 31/10 ou enquanto houver vagas
+  </div>
+
+  <main>
+    <!-- 1ª SEÇÃO: HERO -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <span class="eyebrow">Autoconhecimento &amp; despertar espiritual</span>
+        <h1>Você não está quebrado(a). Está dormindo(a) — e a vida inteira foi construída no piloto automático.</h1>
+        <p class="lead">O <strong>Método Despertar</strong> é um caminho de 21 dias, conduzido por Marcela, para silenciar o ruído, enxergar os padrões que se repetem na sua vida e reencontrar o que já é seu. Meditação, mapa pessoal e rituais simples — online, no seu ritmo, sem dogma.</p>
+
+        <!-- Imagem principal já aplicada: despertar.png -->
+        <img class="hero__image" src="despertar.png" alt="Árvore vista de baixo, com a copa se abrindo em direção à luz">
+
+        <div class="button-wrap">
+          <a class="button" href="#oferta">Quero começar meu despertar <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="trust-row">
+          <span>✓ 21 dias de jornada guiada</span>
+          <span>✓ Aulas curtas + meditações em áudio</span>
+          <span>✓ 100% online, no seu ritmo</span>
+          <span>✓ Garantia incondicional de 7 dias</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2ª SEÇÃO: PRIMEIROS DEPOIMENTOS -->
+    <!-- TEXTOS DE EXEMPLO: substitua por relatos reais, autorizados e sem alterar o sentido. -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">Resultados</span>
+          <h2>Quem já caminhou por aqui, sentiu a diferença:</h2>
+          <p class="lead">Experiências reais de quem parou de correr e voltou a se ouvir. Os resultados variam de pessoa para pessoa.</p>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-track" id="testimonials-early">
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Eu achava que era cansaço. Descobri que eram anos empurrando o que nunca foi meu. No dia 9 eu chorei por uma hora inteira e saí mais leve do que há anos.”</blockquote>
+              <div class="quote-card__person">
+                <div class="avatar" aria-hidden="true">JM</div>
+                <div><p class="person-name">Juliana M.</p><p class="person-meta">38 anos · Recife/PE</p></div>
+              </div>
+            </article>
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Já tinha feito anos de terapia e nada destravava. Aqui, finalmente enxerguei o padrão que eu repetia — e isso mudou a forma como olho para as minhas escolhas.”</blockquote>
+              <div class="quote-card__person">
+                <div class="avatar" aria-hidden="true">RT</div>
+                <div><p class="person-name">Rafael T.</p><p class="person-meta">41 anos · Curitiba/PR</p></div>
+              </div>
+            </article>
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“O que mais me surpreendeu foi a simplicidade. Sem termos difíceis, sem experiência prévia. A parte difícil não foi o conteúdo, foi parar.”</blockquote>
+              <div class="quote-card__person">
+                <div class="avatar" aria-hidden="true">AL</div>
+                <div><p class="person-name">Aline S.</p><p class="person-meta">31 anos · Belo Horizonte/MG</p></div>
+              </div>
+            </article>
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Entrei cética, com medo de mais uma promessa que não cumpre. O que me segurou foi sentir, pela primeira vez, que eu estava me olhando de verdade.”</blockquote>
+              <div class="quote-card__person">
+                <div class="avatar" aria-hidden="true">DL</div>
+                <div><p class="person-name">Dandara L.</p><p class="person-meta">29 anos · Salvador/BA</p></div>
+              </div>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button" type="button" data-prev="testimonials-early" aria-label="Depoimento anterior">←</button>
+            <button class="carousel-button" type="button" data-next="testimonials-early" aria-label="Próximo depoimento">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3ª SEÇÃO: IDENTIFICAÇÃO DO PROBLEMA -->
+    <section class="section">
+      <div class="container two-col">
+        <div>
+          <span class="eyebrow">O que está te prendendo</span>
+          <h2>Você sente que está indo e voltando — e nunca chega em lugar nenhum.</h2>
+          <p><strong>Você já deve ter percebido que…</strong> você cumpre metas, responde por todo mundo, aperta o acelerador — e chega ao fim do dia exausto, sem a sensação de que viveu alguma coisa. O ciclo se repete: mesmo gatilho, mesma reação, mesmo final, na relação, no dinheiro e no trabalho.</p>
+          <p><strong>Isso acontece porque…</strong> ninguém te ensinou a olhar para dentro com honestidade. Você aprendeu a funcionar por fora e a alma ficou na porta, sem ser chamada. Enquanto a mente programa no automático, a consciência continua adormecida — e o corpo começa a cobrar: ansiedade, um cansaço que não passa, e um vazio difícil de nomear.</p>
+        </div>
+        <div>
+          <img class="visual-img" src="pineal.png" alt="Ilustração simbólica de mãos abrindo a testa diante de uma cabeça translúcida">
+          <p class="small-note" style="margin-top:14px">Ilustração simbólica do trabalho de quem é interior — não representa afirmação científica.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4ª SEÇÃO: MÉTODO E TRANSFORMAÇÃO -->
+    <section class="section section--alt">
+      <div class="container two-col two-col--reverse">
+        <div class="visual-placeholder" role="img" aria-label="Espaço reservado para imagem do método">
+          [IMAGEM DO MÉTODO, PROCESSO OU RESULTADO DESEJADO]
+        </div>
+        <div>
+          <span class="eyebrow">O caminho</span>
+          <h2>Despertar não é uma experiência. É um processo — e processo tem método.</h2>
+          <p><strong>Esse método funciona porque…</strong> ele não pede que você acredite em nada. Ele organiza o que já existe dentro de você: atenção, memória e escolhas. A cada dia você trabalha três eixos — <em>atenção</em> (silenciar o ruído), <em>autoconhecimento</em> (enxergar o padrão) e <em>presença</em> (voltar ao corpo e ao agora). Cada eixo tem um exercício curto, um registro escrito e uma meditação guiada.</p>
+          <p><strong>Aplicando isso, você poderá parar de fugir do que já sabe e voltar a caminhar na direção de quem realmente é.</strong> A virada costuma aparecer nas primeiras semanas, na forma de clareza, de decisões mais limpas e de uma calma que não depende das circunstâncias.</p>
+          <a class="button button--secondary" href="#conteudo">Quero conhecer os 21 dias ↓</a>
+        </div>
+      </div>
+
+      <div class="container" style="margin-top:clamp(40px, 6vw, 72px)">
+        <div class="grid grid--3">
+          <article class="card module-card">
+            <span class="phase-tag">Fase 1 · Dias 1 a 7</span>
+            <h3>Silêncio</h3>
+            <p>O mapa do ruído: o que está falando mais alto dentro de você, de onde vem e o que esse ruído está protegendo.</p>
+          </article>
+          <article class="card module-card">
+            <span class="phase-tag">Fase 2 · Dias 8 a 14</span>
+            <h3>Clareza</h3>
+            <p>Os padrões: gatilhos, histórias herdadas da família e repetições que sustentam o ciclo que você diz querer encerrar.</p>
+          </article>
+          <article class="card module-card">
+            <span class="phase-tag">Fase 3 · Dias 15 a 21</span>
+            <h3>Presença</h3>
+            <p>Escolhas novas: transformar tudo que foi revelado em decisão conscious, em rotina e em um jeito de viver mais presente.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5ª SEÇÃO: PARA QUEM É -->
+    <section class="section">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">É para você?</span>
+          <h2>Para quem é o Método Despertar?</h2>
+          <p class="lead">Para quem sente que entendeu a vida inteira — e ainda não entendeu a si mesma(o) dentro dela.</p>
+        </div>
+        <div class="grid grid--2" style="margin-top:32px">
+          <article class="card"><span class="number">01</span><h3>Quem vive no piloto automático</h3><p>Você cumpre metas e responde por todos, mas chega ao fim do dia com a sensação de não ter vivido nada.</p></article>
+          <article class="card"><span class="number">02</span><h3>Quem repete o mesmo ciclo</h3><p>Já terminou relacionamentos, empregos e projetos do mesmo jeito — e na última semana se perguntou: por que é sempre assim?</p></article>
+          <article class="card"><span class="number">03</span><h3>Quem já tentou de tudo</h3><p>Depois da terapia, da meditação e dos livros, ainda falta uma peça. Você quer se entender, não apenas funcionar.</p></article>
+          <article class="card"><span class="number">04</span><h3>Quem quer voltar a sentir</h3><p>Está no controle, mas sem presença. Quer reencontrar o silêncio, a presença e o que dá sentido à sua história.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6ª SEÇÃO: PROVA SOCIAL -->
+    <section class="section section--alt">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">Experiências reais</span>
+          <h2>O que muda em quem já atravessou?</h2>
+          <p class="lead">Relatos de alunas e alunos com contexto: o que mudou, em quanto tempo e a partir de onde.</p>
+        </div>
+        <div class="carousel" data-carousel style="margin-top:30px">
+          <div class="carousel-track" id="testimonials-proof">
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Na segunda semana parei de dizer sim para tudo o que não queria. Minha agenda deixou de ser uma lista de obrigação e virou uma escolha.”</blockquote>
+              <div class="quote-card__person"><div class="avatar" aria-hidden="true">CO</div><div><p class="person-name">Camila O.</p><p class="person-meta">34 anos · Florianópolis/SC · concluída há 2 meses</p></div></div>
+            </article>
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Voltei a meditar — e agora medito há 6 meses. Não foi a aula que me convenceu, foi a experiência de me ouvir de verdade.”</blockquote>
+              <div class="quote-card__person"><div class="avatar" aria-hidden="true">PB</div><div><p class="person-name">Patrícia B.</p><p class="person-meta">45 anos · Porto Alegre/RS · concluída há 5 meses</p></div></div>
+            </article>
+            <article class="card quote-card">
+              <div class="stars" aria-label="Avaliação de cinco estrelas">★★★★★</div>
+              <blockquote>“Entrei com medo de que aquilo fosse mais uma ilusão. Saí com respostas que eu não esperava — e com muito mais respeito pelo meu próprio tempo.”</blockquote>
+              <div class="quote-card__person"><div class="avatar" aria-hidden="true">MC</div><div><p class="person-name">Marcos C.</p><p class="person-meta">52 anos · Goiânia/GO · concluída há 3 meses</p></div></div>
+            </article>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-button" type="button" data-prev="testimonials-proof" aria-label="Depoimento anterior">←</button>
+            <button class="carousel-button" type="button" data-next="testimonials-proof" aria-label="Próximo depoimento">→</button>
+          </div>
+        </div>
+        <p class="small-note center" style="margin-top:10px">Transparência: este é um método de autoconhecimento e prática de atenção. Não substitui acompanhamento psicológico ou médico e não promete resultado específico.</p>
+      </div>
+    </section>
+
+    <!-- 7ª SEÇÃO: CONTEÚDO E BÔNUS -->
+    <section class="section" id="conteudo">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">O que você vai receber</span>
+          <h2>Como funciona o Método Despertar, dia a dia</h2>
+          <p class="lead">Uma plataforma online com aulas curtas, meditações em áudio e um diário para preencher. Você entra, faz o dia no seu ritmo e volta quando quiser.</p>
+        </div>
+        <div class="two-col" style="margin-top:36px">
+          <div class="visual-placeholder" role="img" aria-label="Espaço reservado para mockup do produto">
+            [MOCKUP DO PRODUTO PRINCIPAL — por exemplo: print da tela de um dia do método]
+          </div>
+          <div>
+            <h3>Método Despertar · 21 dias</h3>
+            <p>Um percurso estruturado em três fases, com aulas de 12 a 18 minutos, áudios de meditação e um diário guiado. Você não precisa acreditar em nada para começar — apenas fazer.</p>
+            <ul class="check-list">
+              <li>Mapa do Despertar: um diagnóstico rápido que revela o seu padrão dominante e o que ele protege.</li>
+              <li>21 aulas curtas: uma por dia, sem enrolação, direto ao ponto.</li>
+              <li>Meditações guiadas em áudio, de 5 a 15 minutos, para começar e para fechar o dia.</li>
+              <li>Diário do Despertar com perguntas guiadas para registrar o que apareceu em cada dia.</li>
+              <li>Encontros ao vivo semanais: meditação coletiva e espaço de perguntas.</li>
+              <li>Acesso por 12 meses e certificado de conclusão.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top:76px">
+          <div class="center"><span class="eyebrow">Extras</span><h2>Quais são os bônus?</h2></div>
+          <div class="grid grid--3" style="margin-top:30px">
+            <article class="card bonus-card">
+              <div class="bonus-card__image">[MOCKUP DO BÔNUS 1]</div>
+              <div class="bonus-card__body"><h3>Diário do Despertar</h3><p>Caderno de 21 dias em PDF preenchível, com notas de áudio da Marcela guiando cada pergunta do diário.</p><p><strong>Valor de referência: R$ 67,00</strong></p></div>
+            </article>
+            <article class="card bonus-card">
+              <div class="bonus-card__image">[MOCKUP DO BÔNUS 2]</div>
+              <div class="bonus-card__body"><h3>14 Meditações Guiadas</h3><p>Arquivo de áudios para sono, ansiedade e reconexão com o corpo, para usar fora da jornada.</p><p><strong>Valor de referência: R$ 97,00</strong></p></div>
+            </article>
+            <article class="card bonus-card">
+              <div class="bonus-card__image">[MOCKUP DO BÔNUS 3]</div>
+              <div class="bonus-card__body"><h3>Aula bônus: “Pineal — entre a ciência e a história”</h3><p>Uma aula honesta sobre o que a neurociência sabe e o que a tradiçãoiprojecta sobre a glândula pineal, sem exagero e sem medo.</p><p><strong>Valor de referência: R$ 127,00</strong></p></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8ª SEÇÃO: OFERTA -->
+    <section class="section section--alt" id="oferta">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">Seu próximo passo</span>
+          <h2>A parte de você que espera há anos já está acordando.</h2>
+          <p class="lead">Você recebe os 21 dias, os três bônus e 12 meses de acesso. Se não fizer sentido para você, devolvemos o valor.</p>
+        </div>
+        <div class="price-card">
+          <span class="offer-tag">Turma de Outono · Vagas limitadas</span>
+          <h2 style="margin:20px 0 8px">Esta turma fecha em 48 horas</h2>
+          <p class="old-price">De: R$ 1.997,00</p>
+          <p class="price-caption">Por apenas</p>
+          <p class="installments">12x de R$ 97,00</p>
+          <p class="price-caption">ou R$ 970,00 à vista</p>
+          <p class="small-note">Valores de exemplo. Pagamento único, sem recorrência. As condições e a cobrança passam a valer somente após a confirmação da turma.</p>
+          <div class="button-wrap">
+            <!-- Troque o href pelo link real do checkout -->
+            <a class="button" href="[LINK_DO_CHECKOUT]" target="_blank" rel="noopener noreferrer">Quero despertar agora →</a>
+          </div>
+          <div class="payment-list" aria-label="Formas de pagamento">
+            <span>Cartão de crédito</span><span>Pix</span><span>Boleto</span>
+          </div>
+        </div>
+        <div class="community">
+          <p class="community__number">3.412+</p>
+          <h3>Junte-se a quem já voltou a se ouvir</h3>
+          <p>Número ilustrativo de exemplo — substitua pelo total real de alunas e alunos.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9ª SEÇÃO: GARANTIA -->
+    <section class="section">
+      <div class="container guarantee">
+        <div class="guarantee__seal" aria-label="Selo ilustrativo de garantia">Garantia<br>7 dias</div>
+        <span class="eyebrow">Compra com transparência</span>
+        <h2>7 dias para experimentar. Se não for para você, devolvemos.</h2>
+        <p>Você acessa o método por 7 dias, assiste às aulas, faz os exercícios e julga com calma. Se não fizer sentido, escreva para o e-mail de suporte e o valor é devolvido — sem formulário enorme, sem justificativa, sem constrangimento. O risco é nosso, não seu.</p>
+        <p class="small-note">Exemplo: o prazo de 7 dias começa na confirmação do pagamento e o reembolso é feito em até 10 dias úteis pela mesma via de pagamento.</p>
+        <div class="button-wrap"><a class="button" href="[LINK_DO_CHECKOUT]">Quero começar meu despertar →</a></div>
+      </div>
+    </section>
+
+    <!-- 10ª SEÇÃO: SOBRE O ESPECIALISTA -->
+    <section class="section section--alt">
+      <div class="container two-col">
+        <div>
+          <img class="expert-photo" src="marcela.png" alt="Foto da Marcela">
+        </div>
+        <div>
+          <span class="eyebrow">Quem vai te guiar</span>
+          <h2>Quem sou eu?</h2>
+          <h3>Marcela</h3>
+          <p>Há [X] anos, a Marcela entrou em crise: tinha alcançado tudo o que havia planejado e descobriu que não reconhecia mais a própria vida. Foi justamente aí que começou a se escutar de verdade.</p>
+          <p>Ela se dedicou ao estudo de [formação, tradição, linhas e práticas], criou o Método Despertar e passou a conduzir o mesmo processo que mudou a vida dela: silêncio, mapa pessoal, prática diária e escolhas mais conscientes.</p>
+          <p><strong>Exemplo de credenciais a inserir com dados reais:</strong> [formação, cursos, anos de prática, número de pessoas acompanhadas].</p>
+          <a class="button button--secondary" href="#oferta">Quero conhecer o método</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11ª SEÇÃO: FAQ -->
+    <section class="section">
+      <div class="container">
+        <div class="center">
+          <span class="eyebrow">Tire suas dúvidas</span>
+          <h2>Perguntas frequentes</h2>
+          <p class="lead">Respostas diretas para as dúvidas que costumam travar a decisão.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Preciso ter experiência com meditação ou espiritualidade?</summary>
+            <p>Não. O método foi desenhado para quem está começando agora. Não existe dogma, ritual obrigatório nem linguagem técnica — apenas prática de atenção, registro escrito e conversa honesta com a própria história.</p>
+          </details>
+          <details>
+            <summary>Como recebo acesso ao produto?</summary>
+            <p>Após a confirmação do pagamento você recebe, no e-mail informado no checkout, o acesso à plataforma com as aulas, os áudios e o diário. O acesso é liberado em até 24 horas. O suporte fica disponível pelo mesmo e-mail.</p>
+          </details>
+          <details>
+            <summary>É ao vivo? Preciso reservar horários?</summary>
+            <p>As aulas são gravadas e você assiste quando quiser, durante todo o período de acesso. Além disso, há um encontro ao vivo por semana com horário anunciado — a participação é opcional e as gravações ficam disponíveis.</p>
+          </details>
+          <details>
+            <summary>Por quanto tempo terei acesso?</summary>
+            <p>Por 12 meses a partir da confirmação do pagamento, tempo suficiente para completar os 21 dias e rever o conteúdo quando precisar.</p>
+          </details>
+          <details>
+            <summary>Quais são as formas de pagamento?</summary>
+            <p>Cartão de crédito (à vista ou parcelado), Pix e boleto. O checkout é de pagamento único, sem assinatura ou cobrança recorrente.</p>
+          </details>
+          <details>
+            <summary>Isso substitui terapia ou tratamento médico?</summary>
+            <p>Não. O Método Despertar é um trabalho de autoconhecimento e prática de atenção. Ele não é tratamento psicológico ou médico e não substitui acompanhamento profissional. Se você estiver em sofrimento intenso, procure um profissional habilitado.</p>
+          </details>
+          <details>
+            <summary>Como funciona a garantia?</summary>
+            <p>Você tem 7 dias para acessar e avaliar o material. Se não quiser continuar, basta escrever para o e-mail de suporte solicitando o reembolso — sem justificativa. O valor retorna pela mesma via de pagamento.</p>
+          </details>
+        </div>
+        <div class="button-wrap"><a class="button" href="#oferta">Quero começar meu despertar →</a></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="container">
+      <p>© <span id="current-year"></span> Marcela ®</p>
+      <p>Método Despertar · Todos os direitos reservados.</p>
+      <p class="small-note">[Razão social, contato, política de privacidade e termos — preencha com os dados reais.]</p>
+    </div>
+  </footer>
+
+  <script>
+    // Ano automático no rodapé.
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    // Controles acessíveis dos carrosséis de depoimentos.
+    document.querySelectorAll("[data-next]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const track = document.getElementById(button.dataset.next);
+        if (!track) return;
+        const card = track.querySelector(":scope > *");
+        track.scrollBy({ left: card ? card.getBoundingClientRect().width + 20 : track.clientWidth, behavior: "smooth" });
+      });
+    });
+    document.querySelectorAll("[data-prev]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const track = document.getElementById(button.dataset.prev);
+        if (!track) return;
+        const card = track.querySelector(":scope > *");
+        track.scrollBy({ left: -(card ? card.getBoundingClientRect().width + 20 : track.clientWidth), behavior: "smooth" });
+      });
+    });
+
+    // Revelação suave dos blocos ao rolar a página.
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+      document.querySelectorAll(".card, .module-card, .price-card, .visual-img, .hero__image").forEach((el) => el.classList.add("reveal"));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    }
+  </script>
+</body>
+</html>
