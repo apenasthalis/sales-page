@@ -327,10 +327,13 @@
                   { questionKey: 'q_whatsapp', text: whatsapp }
                 ]
               : [
-                  { questionKey: 'q_0d31c823d1aa', text: email },
-                  { questionKey: 'q_4818bdacb1b3', text: whatsapp },
-                  { questionKey: 'q_11a577703e73', values: ['other'], text: 'Inscrição via LIMIAR' },
-                  { questionKey: 'q_c17e41991403', values: ['other'], text: 'Inscrição via LIMIAR' }
+                  { questionKey: 'q_e35ba31aea30', text: email },
+                  { questionKey: 'q_f0bab7ee446d', text: (whatsapp.match(/\d/g) || []).join('') },
+                  { questionKey: 'q_46a8c66998d6', values: ['other'], text: 'Inscrição via LIMIAR' },
+                  { questionKey: 'q_dfb22f2beec4', values: ['other'], text: 'Inscrição via LIMIAR' },
+                  { questionKey: 'q_6ab773c71552', text: 'Inscrição via página LIMIAR' },
+                  { questionKey: 'q_275540bb2517', values: ['81de75c6'] },
+                  { questionKey: 'q_26da56fbcbc6', values: ['other'], text: 'Inscrição via LIMIAR' }
                 ]
           })
         });
