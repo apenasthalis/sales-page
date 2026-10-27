@@ -1,139 +1,139 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="ptBR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF8">
+  <meta name="viewport" content="width=devicewidth, initialscale=1.0">
   <meta name="description" content="LIMIAR — O início da travessia. Um guia de autoconhecimento para viver com mais consciência. Comunidade Limiar conduzida por Marcela.">
   <title>LIMIAR | O início da travessia</title>
   <style>
     :root {
-      --bg: #0a0a0f;
-      --surface: rgba(255,255,255,.05);
-      --text: #f2efe8;
-      --muted: #b8b2a6;
-      --accent: #d4b06a;
-      --accent-dark: #b8924a;
-      --border: rgba(255,255,255,.12);
-      --max: 820px;
-      --radius: 16px;
+      bg: #0a0a0f;
+      surface: rgba(255,255,255,.05);
+      text: #f2efe8;
+      muted: #b8b2a6;
+      accent: #d4b06a;
+      accentdark: #b8924a;
+      border: rgba(255,255,255,.12);
+      max: 820px;
+      radius: 16px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * { boxsizing: borderbox; }
+    html { scrollbehavior: smooth; }
     body {
       margin: 0;
-      background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,.09), transparent 55%), var(--bg);
-      color: var(--text);
-      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-      line-height: 1.75;
-      min-height: 100vh;
-      padding-top: 56px;
+      background: radialgradient(ellipse at 50% 30%, rgba(255,255,255,.09), transparent 55%), var(bg);
+      color: var(text);
+      fontfamily: "Inter", uisansserif, systemui, applesystem, "Segoe UI", sansserif;
+      lineheight: 1.75;
+      minheight: 100vh;
+      paddingtop: 56px;
     }
-    h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; letter-spacing: -.01em; line-height: 1.12; margin: 0 0 16px; color: #ffffff; }
-    h1 { font-size: clamp(2.8rem, 7vw, 4.6rem); }
-    h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); margin-top: 8px; }
-    h3 { font-size: 1.15rem; }
-    p { color: var(--muted); margin: 0 0 16px; }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    h1, h2, h3 { fontfamily: "Georgia", "Times New Roman", serif; letterspacing: .01em; lineheight: 1.12; margin: 0 0 16px; color: #ffffff; }
+    h1 { fontsize: clamp(2.8rem, 7vw, 4.6rem); }
+    h2 { fontsize: clamp(1.7rem, 3.8vw, 2.5rem); margintop: 8px; }
+    h3 { fontsize: 1.15rem; }
+    p { color: var(muted); margin: 0 0 16px; }
+    a { color: inherit; textdecoration: none; }
+    .container { width: min(var(max), calc(100%  40px)); margininline: auto; }
     .section { padding: clamp(52px, 8vw, 92px) 0; }
-    .eyebrow { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; }
-    .center { text-align: center; }
+    .eyebrow { display: inlineblock; fontsize: .72rem; fontweight: 700; letterspacing: .2em; texttransform: uppercase; color: var(accent); marginbottom: 12px; }
+    .lead { fontsize: 1.12rem; color: var(muted); maxwidth: 720px; }
+    .center { textalign: center; }
     .button {
-      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      min-height: 52px; padding: 14px 28px; border: 0; border-radius: 999px;
-      background: var(--accent); color: #1a150c; font-weight: 700; cursor: pointer;
-      text-decoration: none; transition: background .2s ease, transform .2s ease;
-      box-shadow: 0 8px 28px rgba(212,176,106,.25);
+      display: inlineflex; alignitems: center; justifycontent: center; gap: 10px;
+      minheight: 52px; padding: 14px 28px; border: 0; borderradius: 999px;
+      background: var(accent); color: #1a150c; fontweight: 700; cursor: pointer;
+      textdecoration: none; transition: background .2s ease, transform .2s ease;
+      boxshadow: 0 8px 28px rgba(212,176,106,.25);
     }
-    .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
-    .button--ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); box-shadow: none; }
-    .button-wrap { display: flex; justify-content: center; margin-top: 30px; flex-wrap: wrap; gap: 12px; }
-    .hero { padding: clamp(70px, 11vw, 130px) 0 60px; text-align: center; }
-    .hero .quote { max-width: 660px; margin: 30px auto 0; font-style: italic; color: var(--text); font-size: 1.08rem; }
-    .hero .quote cite { display: block; margin-top: 10px; font-style: normal; color: var(--muted); font-size: .88rem; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; margin-bottom: 20px; backdrop-filter: blur(6px); }
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
-    .photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); }
-    .question { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); }
-    .question:last-child { border-bottom: 0; }
-    .prompt { color: var(--muted); font-size: .95rem; margin: 6px 0 0; font-style: italic; }
-    .writing-space {
-      min-height: 110px; margin-top: 14px; border-radius: 10px;
-      background: linear-gradient(to bottom, transparent 95%, rgba(255,255,255,.12) 95%);
-      background-size: 100% 1.75rem; border: 1px solid var(--border);
+    .button:hover { background: var(accentdark); transform: translateY(1px); }
+    .buttonghost { background: transparent; color: var(accent); border: 1px solid var(accent); boxshadow: none; }
+    .buttonwrap { display: flex; justifycontent: center; margintop: 30px; flexwrap: wrap; gap: 12px; }
+    .hero { padding: clamp(70px, 11vw, 130px) 0 60px; textalign: center; }
+    .hero .quote { maxwidth: 660px; margin: 30px auto 0; fontstyle: italic; color: var(text); fontsize: 1.08rem; }
+    .hero .quote cite { display: block; margintop: 10px; fontstyle: normal; color: var(muted); fontsize: .88rem; }
+    .card { background: var(surface); border: 1px solid var(border); borderradius: var(radius); padding: 26px; marginbottom: 20px; backdropfilter: blur(6px); }
+    .twocol { display: grid; gridtemplatecolumns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); alignitems: center; }
+    .photo { width: 100%; aspectratio: 4/5; objectfit: cover; objectposition: center; borderradius: var(radius); border: 1px solid var(border); background: var(bg); }
+    .question { padding: 12px 0; borderbottom: 1px solid var(border); color: var(text); }
+    .question:lastchild { borderbottom: 0; }
+    .prompt { color: var(muted); fontsize: .95rem; margin: 6px 0 0; fontstyle: italic; }
+    .writingspace {
+      minheight: 110px; margintop: 14px; borderradius: 10px;
+      background: lineargradient(to bottom, transparent 95%, rgba(255,255,255,.12) 95%);
+      backgroundsize: 100% 1.75rem; border: 1px solid var(border);
     }
-    .disclaimer { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 26px; }
-    .modal-backdrop {
+    .disclaimer { fontsize: .85rem; color: var(muted); textalign: center; margintop: 26px; }
+    .modalbackdrop {
       position: fixed; inset: 0; background: rgba(0,0,0,.7);
-      display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px;
+      display: none; alignitems: center; justifycontent: center; zindex: 50; padding: 20px;
     }
-    .modal-backdrop.is-open { display: flex; }
+    .modalbackdrop.isopen { display: flex; }
     .modal {
-      background: #14141b; border: 1px solid var(--border); border-radius: 18px; padding: 30px;
-      width: min(460px, 100%); box-shadow: 0 30px 80px rgba(0,0,0,.5);
+      background: #14141b; border: 1px solid var(border); borderradius: 18px; padding: 30px;
+      width: min(460px, 100%); boxshadow: 0 30px 80px rgba(0,0,0,.5);
     }
-    .modal h2 { font-size: 1.6rem; margin-bottom: 6px; }
-    .field { margin-top: 16px; }
-    .field label { display: block; font-weight: 600; color: var(--text); margin-bottom: 6px; font-size: .92rem; }
+    .modal h2 { fontsize: 1.6rem; marginbottom: 6px; }
+    .field { margintop: 16px; }
+    .field label { display: block; fontweight: 600; color: var(text); marginbottom: 6px; fontsize: .92rem; }
     .field input {
-      width: 100%; padding: 12px 14px; border: 1px solid var(--border);
-      border-radius: 10px; font: inherit; background: rgba(255,255,255,.06); color: var(--text);
+      width: 100%; padding: 12px 14px; border: 1px solid var(border);
+      borderradius: 10px; font: inherit; background: rgba(255,255,255,.06); color: var(text);
     }
-    .modal-actions { display: flex; gap: 10px; margin-top: 22px; flex-wrap: wrap; }
-    .modal-actions .button { flex: 1 1 160px; }
-    .close-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); }
-    .status { font-size: .88rem; color: var(--muted); margin-top: 10px; min-height: 18px; }
-    footer { padding: 30px 0; text-align: center; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); }
-    .top-header {
-      background: var(--accent);
+    .modalactions { display: flex; gap: 10px; margintop: 22px; flexwrap: wrap; }
+    .modalactions .button { flex: 1 1 160px; }
+    .closebtn { background: transparent; border: 1px solid var(border); color: var(muted); }
+    .status { fontsize: .88rem; color: var(muted); margintop: 10px; minheight: 18px; }
+    footer { padding: 30px 0; textalign: center; fontsize: .82rem; color: var(muted); bordertop: 1px solid var(border); }
+    .topheader {
+      background: var(accent);
       color: #1a150c;
-      font-weight: 800;
-      letter-spacing: .05em;
-      font-size: .85rem;
+      fontweight: 800;
+      letterspacing: .05em;
+      fontsize: .85rem;
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 60;
+      zindex: 60;
     }
-    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; text-align: center; }
-    .top-date { font-variant-numeric: tabular-nums; }
-    .countdown { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
-    .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
-    @media (max-width: 600px) {
-      body { padding-top: 80px; }
-      .two-col { grid-template-columns: 1fr; }
-      .top-header .container { flex-direction: column; align-items: center; gap: 8px; padding: 8px 16px; }
+    .topheader .container { display: flex; justifycontent: spacebetween; alignitems: center; flexwrap: wrap; gap: 10px; padding: 6px 20px; maxwidth: none; textalign: center; }
+    .topdate { fontvariantnumeric: tabularnums; }
+    .countdown { display: flex; gap: 10px; alignitems: center; justifycontent: center; flexwrap: wrap; }
+    .cvalue { fontvariantnumeric: tabularnums; fontweight: 900; fontsize: 1rem; }
+    .clabel { fontsize: .68rem; opacity: .85; texttransform: uppercase; letterspacing: .05em; }
+    @media (maxwidth: 600px) {
+      body { paddingtop: 80px; }
+      .twocol { gridtemplatecolumns: 1fr; }
+      .topheader .container { flexdirection: column; alignitems: center; gap: 8px; padding: 8px 16px; }
       .countdown { gap: 6px; }
-      .c-value { font-size: 0.9rem; }
-      .c-label { font-size: 0.6rem; }
+      .cvalue { fontsize: 0.9rem; }
+      .clabel { fontsize: 0.6rem; }
       .modal {
         padding: 20px;
         width: 92%;
-        max-height: 88vh;
-        overflow-y: auto;
+        maxheight: 88vh;
+        overflowy: auto;
       }
-      .modal-actions {
-        flex-direction: column;
+      .modalactions {
+        flexdirection: column;
       }
-      .modal-actions .button {
+      .modalactions .button {
         flex: none;
         width: 100%;
-        min-height: 48px;
+        minheight: 48px;
       }
-      .close-btn { width: 100%; text-align: center; }
+      .closebtn { width: 100%; textalign: center; }
     }
   </style>
 </head>
 <body>
-  <header class="top-header">
+  <header class="topheader">
     <div class="container">
-      <span class="top-date">29/11</span>
+      <span class="topdate">29/11</span>
       <div class="countdown">
-        <span class="c-value" id="c-days">00</span><span class="c-label">dias</span>
-        <span class="c-value" id="c-hours">00</span><span class="c-label">horas</span>
-        <span class="c-value" id="c-minutes">00</span><span class="c-label">min</span>
-        <span class="c-value" id="c-seconds">00</span><span class="c-label">seg</span>
+        <span class="cvalue" id="cdays">00</span><span class="clabel">dias</span>
+        <span class="cvalue" id="chours">00</span><span class="clabel">horas</span>
+        <span class="cvalue" id="cminutes">00</span><span class="clabel">min</span>
+        <span class="cvalue" id="cseconds">00</span><span class="clabel">seg</span>
       </div>
     </div>
   </header>
@@ -143,10 +143,10 @@
       <div class="container">
         <span class="eyebrow">Comunidade Limiar</span>
         <h1>LIMIAR</h1>
-        <p class="lead center" style="margin-inline:auto">Este é o lugar onde tudo acontece. Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência — no seu ritmo, com presença.</p>
+        <p class="lead center" style="margininline:auto">Este é o lugar onde tudo acontece. Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência — no seu ritmo, com presença.</p>
         <p class="quote">“Uma vida não examinada não vale a pena ser vivida.”<cite>— Sócrates, conforme registrado na Apologia de Sócrates, de Platão.</cite></p>
-        <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></button>
+        <div class="buttonwrap">
+          <button class="button" type="button" dataopenmodal>Quero entrar na comunidade Limiar <span ariahidden="true">→</span></button>
         </div>
       </div>
     </section>
@@ -155,20 +155,20 @@
       <div class="container">
         <span class="eyebrow">O que você encontra aqui dentro</span>
         <h2>Tudo o que apoia a sua travessia.</h2>
-        <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
+        <p class="lead" style="margininline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
         <div class="card">
           <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
           <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
           <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
         </div>
-        <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Entrar na comunidade agora <span aria-hidden="true">→</span></button>
+        <div class="buttonwrap">
+          <button class="button" type="button" dataopenmodal>Entrar na comunidade agora <span ariahidden="true">→</span></button>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" style="--bg: rgba(255,255,255,.025);">
-      <div class="container two-col">
+    <section class="section sectionalt" style="bg: rgba(255,255,255,.025);">
+      <div class="container twocol">
         <div>
           <img class="photo" src="marcela.png" alt="Foto de Marcela, guia da Comunidade Limiar">
         </div>
@@ -179,8 +179,8 @@
           <p>Criei a Comunidade Limiar porque acredito que o autoconhecimento não se faz sozinho. Ele precisa de um lugar onde possa ser compartilhado, praticado e integrado ao dia a dia.</p>
           <p>Aqui dentro é onde disponibilizo tudo o que desenvolvo: guias, encontros, conteúdos e o acolhimento que eu mesma gostaria de ter quando comecei a me olhar com honestidade.</p>
           <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas — e decidir, com mais consciência, quem você quer ser.</p>
-          <div class="button-wrap" style="justify-content: flex-start;">
-            <button class="button" type="button" data-open-modal>Quero entrar na comunidade <span aria-hidden="true">→</span></button>
+          <div class="buttonwrap" style="justifycontent: flexstart;">
+            <button class="button" type="button" dataopenmodal>Quero entrar na comunidade <span ariahidden="true">→</span></button>
           </div>
         </div>
       </div>
@@ -190,9 +190,9 @@
       <div class="container">
         <span class="eyebrow">Seu próximo passo</span>
         <h2>Entre quem você foi e quem escolhe ser.</h2>
-        <p class="lead" style="margin-inline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
-        <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Entrar na Comunidade Limiar <span aria-hidden="true">→</span></button>
+        <p class="lead" style="margininline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
+        <div class="buttonwrap">
+          <button class="button" type="button" dataopenmodal>Entrar na Comunidade Limiar <span ariahidden="true">→</span></button>
         </div>
         <p class="disclaimer">A Comunidade Limiar é um espaço de autoconhecimento e prática consciente. Não substitui acompanhamento psicológico ou médico.</p>
       </div>
@@ -206,43 +206,43 @@
     </div>
   </footer>
 
-  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modalbackdrop" id="modal" role="dialog" ariamodal="true" arialabelledby="modaltitle">
     <div class="modal">
-      <h2 id="modal-title">Inscreva-se na comunidade</h2>
-      <p>Deixe seu e-mail e WhatsApp para entrarmos em contato e liberar seu acesso.</p>
-      <form id="inscricao-form">
+      <h2 id="modaltitle">Inscrevase na comunidade</h2>
+      <p>Deixe seu email e WhatsApp para entrarmos em contato e liberar seu acesso.</p>
+      <form id="inscricaoform">
         <div class="field">
-          <label for="email">E-mail</label>
+          <label for="email">Email</label>
           <input id="email" name="email" type="email" required placeholder="seu@email.com">
         </div>
         <div class="field">
           <label for="whatsapp">Número de WhatsApp</label>
-          <input id="whatsapp" name="whatsapp" type="tel" required placeholder="(00) 00000-0000">
+          <input id="whatsapp" name="whatsapp" type="tel" required placeholder="(00) 000000000">
         </div>
-        <div class="modal-actions">
+        <div class="modalactions">
           <button class="button" type="submit">Enviar e entrar na comunidade</button>
-          <button class="button close-btn" type="button" id="close-modal">Cancelar</button>
+          <button class="button closebtn" type="button" id="closemodal">Cancelar</button>
         </div>
-        <p class="status" id="form-status"></p>
+        <p class="status" id="formstatus"></p>
       </form>
     </div>
   </div>
 
   <script>
     const modal = document.getElementById('modal');
-    const form = document.getElementById('inscricao-form');
-    const statusEl = document.getElementById('form-status');
-    const closeBtn = document.getElementById('close-modal');
+    const form = document.getElementById('inscricaoform');
+    const statusEl = document.getElementById('formstatus');
+    const closeBtn = document.getElementById('closemodal');
     const WHATSAPP_URL = 'https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt';
     const isLocal = ['localhost','127.0.0.1',''].includes(window.location.hostname);
     const API_URL = isLocal
-      ? 'http://localhost:8080/api/public/forms/limiar-jornada/submissions'
-      : 'https://form.ralecram.com.br/api/public/forms/o-inicio-da-travessia-um-guia-de-autoconhecimento-para-viver/submissions';
+      ? 'http://localhost:8080/api/public/forms/limiarjornada/submissions'
+      : 'https://form.ralecram.com.br/api/public/forms/oiniciodatravessiaumguiadeautoconhecimentoparaviver/submissions';
 
-    function openModal() { modal.classList.add('is-open'); }
-    function closeModal() { modal.classList.remove('is-open'); }
+    function openModal() { modal.classList.add('isopen'); }
+    function closeModal() { modal.classList.remove('isopen'); }
 
-    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+    document.querySelectorAll('[dataopenmodal]').forEach((btn) => {
       btn.addEventListener('click', openModal);
     });
     closeBtn.addEventListener('click', closeModal);
@@ -267,7 +267,7 @@
       try {
         await fetch(API_URL, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 'ContentType': 'application/json' },
           body: JSON.stringify({
             idempotencyKey: gerarChave(),
             answers: isLocal
@@ -290,15 +290,15 @@
     });
 
     (function(){
-      const elDays = document.getElementById('c-days');
-      const elHours = document.getElementById('c-hours');
-      const elMins = document.getElementById('c-minutes');
-      const elSecs = document.getElementById('c-seconds');
+      const elDays = document.getElementById('cdays');
+      const elHours = document.getElementById('chours');
+      const elMins = document.getElementById('cminutes');
+      const elSecs = document.getElementById('cseconds');
       function update(){
         const now = new Date();
         let target = new Date(now.getFullYear(), 10, 29);
         if (now > target) target = new Date(now.getFullYear() + 1, 10, 29);
-        const diff = target - now;
+        const diff = target  now;
         if (diff <= 0) {
           elDays.textContent='00'; elHours.textContent='00'; elMins.textContent='00'; elSecs.textContent='00';
           return;
