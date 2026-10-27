@@ -95,16 +95,33 @@
       top: 0; left: 0; right: 0;
       z-index: 60;
     }
-    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; }
+    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; text-align: center; }
     .top-date { font-variant-numeric: tabular-nums; }
-    .countdown { display: flex; gap: 10px; align-items: center; }
+    .countdown { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
     .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
     .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
     @media (max-width: 600px) {
-      body { padding-top: 72px; }
+      body { padding-top: 80px; }
       .two-col { grid-template-columns: 1fr; }
-      .top-header .container { flex-direction: column; align-items: flex-start; gap: 8px; }
-      .modal-actions { flex-direction: column; }
+      .top-header .container { flex-direction: column; align-items: center; gap: 8px; padding: 8px 16px; }
+      .countdown { gap: 6px; }
+      .c-value { font-size: 0.9rem; }
+      .c-label { font-size: 0.6rem; }
+      .modal {
+        padding: 20px;
+        width: 92%;
+        max-height: 88vh;
+        overflow-y: auto;
+      }
+      .modal-actions {
+        flex-direction: column;
+      }
+      .modal-actions .button {
+        flex: none;
+        width: 100%;
+        min-height: 48px;
+      }
+      .close-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
