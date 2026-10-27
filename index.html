@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LIMIAR — O início da travessia. Um guia de autoconhecimento para viver com mais consciência.">
+  <meta name="description" content="LIMIAR — O início da travessia. Um guia de autoconhecimento para viver com mais consciência. Comunidade Limiar conduzida por Marcela.">
   <title>LIMIAR | O início da travessia</title>
   <style>
     :root {
@@ -26,13 +26,14 @@
       font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
       line-height: 1.75;
       min-height: 100vh;
+      padding-top: 56px;
     }
     h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; letter-spacing: -.01em; line-height: 1.12; margin: 0 0 16px; color: #ffffff; }
     h1 { font-size: clamp(2.8rem, 7vw, 4.6rem); }
     h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); margin-top: 8px; }
     h3 { font-size: 1.15rem; }
     p { color: var(--muted); margin: 0 0 16px; }
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
     .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
     .section { padding: clamp(52px, 8vw, 92px) 0; }
     .eyebrow { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
@@ -52,6 +53,8 @@
     .hero .quote { max-width: 660px; margin: 30px auto 0; font-style: italic; color: var(--text); font-size: 1.08rem; }
     .hero .quote cite { display: block; margin-top: 10px; font-style: normal; color: var(--muted); font-size: .88rem; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; margin-bottom: 20px; backdrop-filter: blur(6px); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
+    .photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); }
     .question { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); }
     .question:last-child { border-bottom: 0; }
     .prompt { color: var(--muted); font-size: .95rem; margin: 6px 0 0; font-style: italic; }
@@ -82,170 +85,99 @@
     .close-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); }
     .status { font-size: .88rem; color: var(--muted); margin-top: 10px; min-height: 18px; }
     footer { padding: 30px 0; text-align: center; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); }
-    @media (max-width: 600px) { .modal-actions { flex-direction: column; } }
+    .feature { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+    .feature .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; margin-top: 6px; box-shadow: 0 0 12px rgba(212,176,106,.5); }
+    .feature p { margin: 0; color: var(--text); font-size: 1.02rem; }
+    .feature p b { color: var(--text); }
+    .top-header {
+      background: var(--accent);
+      color: #1a150c;
+      font-weight: 800;
+      letter-spacing: .05em;
+      font-size: .85rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 60;
+    }
+    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; }
+    .top-date { font-variant-numeric: tabular-nums; }
+    .countdown { display: flex; gap: 10px; align-items: center; }
+    .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
+    .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
+    @media (max-width: 600px) {
+      body { padding-top: 72px; }
+      .two-col { grid-template-columns: 1fr; }
+      .top-header .container { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .modal-actions { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
+  <header class="top-header">
+    <div class="container">
+      <span class="top-date">29/11</span>
+      <div class="countdown">
+        <span class="c-value" id="c-days">00</span><span class="c-label">dias</span>
+        <span class="c-value" id="c-hours">00</span><span class="c-label">horas</span>
+        <span class="c-value" id="c-minutes">00</span><span class="c-label">min</span>
+        <span class="c-value" id="c-seconds">00</span><span class="c-label">seg</span>
+      </div>
+    </div>
+  </header>
+
   <main>
     <section class="hero">
       <div class="container">
-        <span class="eyebrow">Autoconhecimento · Consciência</span>
+        <span class="eyebrow">Comunidade Limiar</span>
         <h1>LIMIAR</h1>
-        <p class="lead center" style="margin-inline:auto">O início da travessia. Um guia de autoconhecimento para viver com mais consciência.</p>
+        <p class="lead center" style="margin-inline:auto">Este é o lugar onde tudo acontece. Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência — no seu ritmo, com presença.</p>
         <p class="quote">“Uma vida não examinada não vale a pena ser vivida.”<cite>— Sócrates, conforme registrado na Apologia de Sócrates, de Platão.</cite></p>
         <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Quero me inscrever na jornada limiar</button>
+          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">Antes de começar</span>
-        <h2>Reserve pelo menos uma hora para você.</h2>
-        <p>Escolha um lugar tranquilo, deixe o celular de lado e permita-se estar presente. Se quiser, prepare uma bebida, coloque uma música suave ou simplesmente fique em silêncio.</p>
-        <p>Este não é um material para ler às pressas e esquecer depois. É um convite para olhar para dentro, questionar aquilo que você considera verdade e reconhecer aspectos de si que talvez passem despercebidos na correria do cotidiano.</p>
-        <p>Responda aos exercícios com honestidade. Não procure respostas bonitas, corretas ou espiritualmente elevadas. Permita-se escrever o que realmente pensa e sente, mesmo quando ainda não souber explicar o porquê.</p>
-        <p>Você não precisa chegar a nenhuma conclusão definitiva. Algumas perguntas podem acompanhar você por mais tempo, e tudo bem.</p>
-        <div class="button-wrap">
-          <button class="button button--ghost" type="button" data-open-modal>Quero me inscrever na jornada limiar</button>
+    <section class="section center">
+      <span class="eyebrow">O que você encontra aqui dentro</span>
+      <h2>Tudo o que apoia a sua travessia.</h2>
+      <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
+      <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
+      <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
+      <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
+      <div class="button-wrap">
+        <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na comunidade agora <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="section section--alt" style="--bg: rgba(255,255,255,.025);">
+      <div class="container two-col">
+        <div>
+          <img class="photo" src="marcela.png" alt="Foto de Marcela, guia da Comunidade Limiar">
+        </div>
+        <div>
+          <span class="eyebrow">Quem vai te receber</span>
+          <h2>Quem sou eu?</h2>
+          <h3>Marcela</h3>
+          <p>Criei a Comunidade Limiar porque acredito que o autoconhecimento não se faz sozinho. Ele precisa de um lugar onde possa ser compartilhado, praticado e integrado ao dia a dia.</p>
+          <p>Aqui dentro é onde disponibilizo tudo o que desenvolvo: guias, encontros, conteúdos e o acolhimento que eu mesma gostaria de ter quando comecei a me olhar com honestidade.</p>
+          <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas — e decidir, com mais consciência, quem você quer ser.</p>
+          <div class="button-wrap" style="justify-content: flex-start;">
+            <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section center">
       <div class="container">
-        <span class="eyebrow">Boas-vindas</span>
-        <h2>Existe um momento em que começamos a questionar aquilo que antes simplesmente aceitávamos.</h2>
-        <p>Nossas escolhas, nossos pensamentos, nossas crenças e a maneira como enxergamos o mundo deixam de parecer tão óbvios. Começamos a perceber que muito do que chamamos de personalidade foi construído ao longo da vida: pelas experiências que vivemos, pelo ambiente em que crescemos e pelas ideias que aprendemos a considerar verdadeiras.</p>
-        <p>Esse processo pode despertar curiosidade, mas também trazer confusão. Por onde começar? Como reconhecer os padrões que se repetem? Como transformar aquilo que compreendemos em uma maneira diferente de viver?</p>
-        <p>Este guia é um convite para começar por você. Não é necessário ter todas as respostas. É necessário estar disposta a observar as perguntas.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">1. Onde você está?</span>
-        <h2>Escrever é trazer para o plano material aquilo que existia apenas no campo dos pensamentos.</h2>
-        <p>Antes de transformar alguma coisa, precisamos reconhecer o ponto em que estamos. O autoconhecimento começa quando deixamos de observar apenas o que acontece conosco e passamos a investigar como participamos da nossa própria experiência.</p>
-        <div class="card">
-          <div class="question">1. Como tenho me sentido em relação à minha vida?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">2. Quais situações têm despertado desconforto ou insatisfação?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">3. O que desejo mudar, mas continuo adiando?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">4. Em quais momentos sinto que estou vivendo de acordo com quem realmente sou?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">5. O que tenho feito apenas por hábito, medo ou expectativa alheia?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <p class="prompt">As respostas não precisam ser bonitas. Seja honesto consigo mesmo.</p>
-        </div>
-        <p style="font-style:italic;color:var(--text)">“Antes de curar alguém, pergunte-lhe se está disposto a desistir das coisas que o fizeram adoecer.”</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">2. O piloto automático</span>
-        <h2>Você já percebeu que algumas situações parecem se repetir, mesmo quando as circunstâncias mudam?</h2>
-        <p>Podemos reagir de maneira semelhante a diferentes pessoas, repetir escolhas que não nos satisfazem ou continuar seguindo expectativas que já não correspondem ao que desejamos. Reconhecer um padrão não significa se culpar por ele, significa começar a compreender como ele funciona.</p>
-        <div class="card">
-          <div class="question">1. O que costuma acontecer?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">2. Como costumo reagir?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">3. O que penso ou sinto nesse momento?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">4. O que minha reação tenta proteger, evitar ou conquistar?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">5. Qual é a consequência dessa reação?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">3. As histórias que você acredita</span>
-        <h2>Nem tudo aquilo que pensamos sobre nós mesmos corresponde a uma verdade absoluta.</h2>
-        <p>Ao longo da vida, construímos interpretações sobre quem somos, o que merecemos, do que somos capazes e como o mundo funciona. Algumas dessas ideias nos ajudam, outras podem limitar nossas escolhas sem que percebamos.</p>
-        <div class="card">
-          <div class="question">1. Uma coisa que acredito sobre mim é...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">2. Comecei a acreditar nisso quando...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">3. Essa ideia influencia minhas escolhas de que maneira?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">4. Que evidências sustentam ou contradizem essa crença?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">5. Que interpretação mais realista e construtiva posso considerar?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">4. O que já não faz sentido?</span>
-        <h2>O despertar também envolve reconhecer as diferenças entre aquilo que aprendemos a desejar e aquilo que realmente faz sentido para nós.</h2>
-        <p>Questionar essas escolhas não significa rejeitar tudo o que veio antes. Significa decidir, com mais consciência, o que queremos continuar levando conosco.</p>
-        <div class="card">
-          <div class="question">1. Quais expectativas sinto que preciso atender?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">2. O que faço principalmente para receber aprovação?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">3. Que desejos continuam fazendo sentido para mim, mesmo quando ninguém está olhando?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">4. O que gostaria de experimentar se me permitisse escolher com mais liberdade?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">5. Que valor pessoal quero colocar mais em prática?</div>
-          <div class="writing-space" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">5. Uma nova escolha</span>
-        <h2>Compreender a si mesma é importante. Transformar essa compreensão em atitudes é o que permite experimentar novas possibilidades na vida cotidiana.</h2>
-        <div class="card">
-          <div class="question">1. A partir deste guia, percebo que...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">2. Um padrão que quero observar com mais atenção é...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">3. Uma crença que desejo investigar é...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">4. Quero cultivar mais...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-          <div class="question">5. Nos próximos sete dias, uma ação concreta que vou praticar é...</div>
-          <div class="writing-space" aria-hidden="true"></div>
-        </div>
-        <p class="prompt">Escolha uma ação pequena, específica e possível de realizar. Depois, observe o que acontece.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">6. A travessia continua</span>
-        <h2>O autoconhecimento não acontece em uma única descoberta.</h2>
-        <p>É um processo de observar, compreender, experimentar, rever e integrar. Algumas respostas aparecem rapidamente, outras exigem tempo, experiência e disposição para olhar novamente.</p>
-        <p>O despertar pode abrir novas perguntas sobre a consciência, a existência, a intuição e a nossa relação com a vida, mas essas descobertas ganham significado quando encontram espaço na maneira como vivemos.</p>
-        <p>A pergunta não é apenas o que você descobriu sobre si mesma, mas o que fará com essa descoberta.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container center">
         <span class="eyebrow">Seu próximo passo</span>
-        <h2>Este guia é apenas o começo.</h2>
-        <p class="lead" style="margin-inline:auto">Existe muito a explorar sobre os condicionamentos que influenciam nossas escolhas, a relação com os pensamentos e as emoções, a conexão espiritual, a intuição e a construção consciente da vida que desejamos viver.</p>
-        <p>O Limiar nasce desse convite: aprofundar o conhecimento de si, integrar a espiritualidade à experiência cotidiana e transformar consciência em prática.</p>
-        <p style="font-weight:600;color:var(--text)">Entre quem você foi e quem escolhe ser. Toda travessia começa quando você decide olhar.</p>
+        <h2>Entre quem você foi e quem escolhe ser.</h2>
+        <p class="lead" style="margin-inline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
         <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Quero me inscrever na jornada limiar</button>
+          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na Comunidade Limiar <span aria-hidden="true">→</span></a>
         </div>
-        <p class="disclaimer">Este material é um exercício de autoconhecimento e não substitui acompanhamento psicológico ou médico.</p>
+        <p class="disclaimer">A Comunidade Limiar é um espaço de autoconhecimento e prática consciente. Não substitui acompanhamento psicológico ou médico.</p>
       </div>
     </section>
   </main>
@@ -257,88 +189,33 @@
     </div>
   </footer>
 
-  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal">
-      <h2 id="modal-title">Inscreva-se na jornada</h2>
-      <p>Deixe seu e-mail e WhatsApp para entrarmos em contato.</p>
-      <form id="inscricao-form">
-        <div class="field">
-          <label for="email">E-mail</label>
-          <input id="email" name="email" type="email" required placeholder="seu@email.com">
-        </div>
-        <div class="field">
-          <label for="whatsapp">Número de WhatsApp</label>
-          <input id="whatsapp" name="whatsapp" type="tel" required placeholder="(00) 00000-0000">
-        </div>
-        <div class="modal-actions">
-          <button class="button" type="submit">Enviar e entrar no WhatsApp</button>
-          <button class="button close-btn" type="button" id="close-modal">Cancelar</button>
-        </div>
-        <p class="status" id="form-status"></p>
-      </form>
-    </div>
-  </div>
-
   <script>
-    const modal = document.getElementById('modal');
-    const form = document.getElementById('inscricao-form');
-    const statusEl = document.getElementById('form-status');
-    const closeBtn = document.getElementById('close-modal');
-    const WHATSAPP_URL = 'https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt';
-    const isLocal = ['localhost','127.0.0.1',''].includes(window.location.hostname);
-    const API_URL = isLocal
-      ? 'http://localhost:8080/api/public/forms/limiar-jornada/submissions'
-      : 'https://form.ralecram.com.br/api/public/forms/o-inicio-da-travessia-um-guia-de-autoconhecimento-para-viver/submissions';
-
-    function openModal() { modal.classList.add('is-open'); }
-    function closeModal() { modal.classList.remove('is-open'); }
-
-    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
-      btn.addEventListener('click', openModal);
-    });
-    closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-
-    function gerarChave() {
-      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
-      return 'id_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      if (!email || !whatsapp) return;
-
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.disabled = true;
-      statusEl.textContent = 'Enviando...';
-
-      try {
-        await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            idempotencyKey: gerarChave(),
-            answers: isLocal
-              ? [
-                  { questionKey: 'q_email', text: email },
-                  { questionKey: 'q_whatsapp', text: whatsapp }
-                ]
-              : [
-                  { questionKey: 'q_8650a87cf2dd', text: email },
-                  { questionKey: 'q_550af6830f78', text: (whatsapp.match(/\d/g) || []).join('') }
-                ]
-          })
-        });
-      } catch (err) {
-        // Ignora falhas de rede/CORS e segue para o WhatsApp.
+    (function(){
+      const elDays = document.getElementById('c-days');
+      const elHours = document.getElementById('c-hours');
+      const elMins = document.getElementById('c-minutes');
+      const elSecs = document.getElementById('c-seconds');
+      function update(){
+        const now = new Date();
+        let target = new Date(now.getFullYear(), 10, 29);
+        if (now > target) target = new Date(now.getFullYear() + 1, 10, 29);
+        const diff = target - now;
+        if (diff <= 0) {
+          elDays.textContent='00'; elHours.textContent='00'; elMins.textContent='00'; elSecs.textContent='00';
+          return;
+        }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const s = Math.floor((diff % (1000*60)) / 1000);
+        elDays.textContent = String(d).padStart(2,'0');
+        elHours.textContent = String(h).padStart(2,'0');
+        elMins.textContent = String(m).padStart(2,'0');
+        elSecs.textContent = String(s).padStart(2,'0');
       }
-
-      statusEl.textContent = 'Redirecionando...';
-      window.location.href = WHATSAPP_URL;
-    });
+      update();
+      setInterval(update, 1000);
+    })();
   </script>
 </body>
 </html>
