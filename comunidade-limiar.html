@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Comunidade Limiar — um espaço de autoconhecimento, espiritualidade e prática consciente, conduzido por Marcela. Entre e tenha acesso a tudo.">
+  <title>Comunidade Limiar | Entre para quem você é</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: rgba(255,255,255,.05);
+      --text: #f2efe8;
+      --muted: #b8b2a6;
+      --accent: #d4b06a;
+      --accent-dark: #b8924a;
+      --border: rgba(255,255,255,.12);
+      --max: 860px;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,.09), transparent 55%), var(--bg);
+      color: var(--text);
+      font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.75;
+      min-height: 100vh;
+      padding-top: 56px;
+    }
+    h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; letter-spacing: -.01em; line-height: 1.12; margin: 0 0 16px; color: #ffffff; }
+    h1 { font-size: clamp(2.8rem, 7vw, 4.6rem); }
+    h2 { font-size: clamp(1.7rem, 3.8vw, 2.5rem); margin-top: 8px; }
+    h3 { font-size: 1.15rem; }
+    p { color: var(--muted); margin: 0 0 16px; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .section { padding: clamp(52px, 8vw, 92px) 0; }
+    .eyebrow { display: inline-block; font-size: .72rem; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .lead { font-size: 1.12rem; color: var(--muted); max-width: 720px; }
+    .center { text-align: center; }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      min-height: 52px; padding: 14px 28px; border: 0; border-radius: 999px;
+      background: var(--accent); color: #1a150c; font-weight: 700; cursor: pointer;
+      text-decoration: none; transition: background .2s ease, transform .2s ease;
+      box-shadow: 0 8px 28px rgba(212,176,106,.25);
+    }
+    .button:hover { background: var(--accent-dark); transform: translateY(-1px); }
+    .button-wrap { display: flex; justify-content: center; margin-top: 30px; flex-wrap: wrap; gap: 12px; }
+    .hero { padding: clamp(70px, 11vw, 130px) 0 60px; text-align: center; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; margin-bottom: 20px; backdrop-filter: blur(6px); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
+    .photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); }
+    .disclaimer { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 26px; }
+    footer { padding: 30px 0; text-align: center; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); }
+    .feature { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+    .feature .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; margin-top: 6px; box-shadow: 0 0 12px rgba(212,176,106,.5); }
+    .feature p { margin: 0; color: var(--text); font-size: 1.02rem; }
+    .feature p b { color: var(--text); }
+    .top-header {
+      background: var(--accent);
+      color: #1a150c;
+      font-weight: 800;
+      letter-spacing: .05em;
+      font-size: .85rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 60;
+    }
+    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; }
+    .top-date { font-variant-numeric: tabular-nums; }
+    .countdown { display: flex; gap: 10px; align-items: center; }
+    .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
+    .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
+    @media (max-width: 600px) {
+      body { padding-top: 72px; }
+      .two-col { grid-template-columns: 1fr; }
+      .top-header .container { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-header">
+    <div class="container">
+      <span class="top-date">29/11</span>
+      <div class="countdown">
+        <span class="c-value" id="c-days">00</span><span class="c-label">dias</span>
+        <span class="c-value" id="c-hours">00</span><span class="c-label">horas</span>
+        <span class="c-value" id="c-minutes">00</span><span class="c-label">min</span>
+        <span class="c-value" id="c-seconds">00</span><span class="c-label">seg</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Comunidade Limiar</span>
+        <h1>Este é o lugar onde tudo acontece.</h1>
+        <p class="lead center" style="margin-inline:auto">Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência — no seu ritmo, com presença.</p>
+        <div class="button-wrap">
+          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container center">
+        <span class="eyebrow">O que você encontra aqui dentro</span>
+        <h2>Tudo o que apoia a sua travessia.</h2>
+        <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
+        <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
+        <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
+        <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
+        <div class="button-wrap">
+          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na comunidade agora <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" style="--bg: rgba(255,255,255,.025);">
+      <div class="container two-col">
+        <div>
+          <img class="photo" src="marcela.png" alt="Foto de Marcela, guia da Comunidade Limiar">
+        </div>
+        <div>
+          <span class="eyebrow">Quem vai te receber</span>
+          <h2>Quem sou eu?</h2>
+          <h3>Marcela</h3>
+          <p>Criei a Comunidade Limiar porque acredito que o autoconhecimento não se faz sozinho. Ele precisa de um lugar onde possa ser compartilhado, praticado e integrado ao dia a dia.</p>
+          <p>Aqui dentro é onde disponibilizo tudo o que desenvolvo: guias, encontros, conteúdos e o acolhimento que eu mesma gostaria de ter quando comecei a me olhar com honestidade.</p>
+          <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas — e decidir, com mais consciência, quem você quer ser.</p>
+          <div class="button-wrap" style="justify-content: flex-start;">
+            <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section center">
+      <div class="container">
+        <span class="eyebrow">Seu próximo passo</span>
+        <h2>Entre quem você foi e quem escolhe ser.</h2>
+        <p class="lead" style="margin-inline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
+        <div class="button-wrap">
+          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na Comunidade Limiar <span aria-hidden="true">→</span></a>
+        </div>
+        <p class="disclaimer">A Comunidade Limiar é um espaço de autoconhecimento e prática consciente. Não substitui acompanhamento psicológico ou médico.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Comunidade Limiar · Conduzido por Marcela</p>
+      <p>Autoconhecimento · Consciência · Presença</p>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const elDays = document.getElementById('c-days');
+      const elHours = document.getElementById('c-hours');
+      const elMins = document.getElementById('c-minutes');
+      const elSecs = document.getElementById('c-seconds');
+      function update(){
+        const now = new Date();
+        let target = new Date(now.getFullYear(), 10, 29);
+        if (now > target) target = new Date(now.getFullYear() + 1, 10, 29);
+        const diff = target - now;
+        if (diff <= 0) {
+          elDays.textContent='00'; elHours.textContent='00'; elMins.textContent='00'; elSecs.textContent='00';
+          return;
+        }
+        const d = Math.floor(diff / (1000*60*60*24));
+        const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const m = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const s = Math.floor((diff % (1000*60)) / 1000);
+        elDays.textContent = String(d).padStart(2,'0');
+        elHours.textContent = String(h).padStart(2,'0');
+        elMins.textContent = String(m).padStart(2,'0');
+        elSecs.textContent = String(s).padStart(2,'0');
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
