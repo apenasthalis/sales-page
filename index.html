@@ -85,10 +85,6 @@
     .close-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); }
     .status { font-size: .88rem; color: var(--muted); margin-top: 10px; min-height: 18px; }
     footer { padding: 30px 0; text-align: center; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); }
-    .feature { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
-    .feature .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; margin-top: 6px; box-shadow: 0 0 12px rgba(212,176,106,.5); }
-    .feature p { margin: 0; color: var(--text); font-size: 1.02rem; }
-    .feature p b { color: var(--text); }
     .top-header {
       background: var(--accent);
       color: #1a150c;
@@ -133,20 +129,24 @@
         <p class="lead center" style="margin-inline:auto">Este é o lugar onde tudo acontece. Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência — no seu ritmo, com presença.</p>
         <p class="quote">“Uma vida não examinada não vale a pena ser vivida.”<cite>— Sócrates, conforme registrado na Apologia de Sócrates, de Platão.</cite></p>
         <div class="button-wrap">
-          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></a>
+          <button class="button" type="button" data-open-modal>Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></button>
         </div>
       </div>
     </section>
 
     <section class="section center">
-      <span class="eyebrow">O que você encontra aqui dentro</span>
-      <h2>Tudo o que apoia a sua travessia.</h2>
-      <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
-      <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
-      <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
-      <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
-      <div class="button-wrap">
-        <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na comunidade agora <span aria-hidden="true">→</span></a>
+      <div class="container">
+        <span class="eyebrow">O que você encontra aqui dentro</span>
+        <h2>Tudo o que apoia a sua travessia.</h2>
+        <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
+        <div class="card">
+          <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
+          <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
+          <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
+        </div>
+        <div class="button-wrap">
+          <button class="button" type="button" data-open-modal>Entrar na comunidade agora <span aria-hidden="true">→</span></button>
+        </div>
       </div>
     </section>
 
@@ -163,7 +163,7 @@
           <p>Aqui dentro é onde disponibilizo tudo o que desenvolvo: guias, encontros, conteúdos e o acolhimento que eu mesma gostaria de ter quando comecei a me olhar com honestidade.</p>
           <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas — e decidir, com mais consciência, quem você quer ser.</p>
           <div class="button-wrap" style="justify-content: flex-start;">
-            <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Quero entrar na comunidade <span aria-hidden="true">→</span></a>
+            <button class="button" type="button" data-open-modal>Quero entrar na comunidade <span aria-hidden="true">→</span></button>
           </div>
         </div>
       </div>
@@ -175,7 +175,7 @@
         <h2>Entre quem você foi e quem escolhe ser.</h2>
         <p class="lead" style="margin-inline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
         <div class="button-wrap">
-          <a class="button" href="https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt" target="_blank" rel="noopener noreferrer">Entrar na Comunidade Limiar <span aria-hidden="true">→</span></a>
+          <button class="button" type="button" data-open-modal>Entrar na Comunidade Limiar <span aria-hidden="true">→</span></button>
         </div>
         <p class="disclaimer">A Comunidade Limiar é um espaço de autoconhecimento e prática consciente. Não substitui acompanhamento psicológico ou médico.</p>
       </div>
@@ -189,7 +189,89 @@
     </div>
   </footer>
 
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <h2 id="modal-title">Inscreva-se na comunidade</h2>
+      <p>Deixe seu e-mail e WhatsApp para entrarmos em contato e liberar seu acesso.</p>
+      <form id="inscricao-form">
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required placeholder="seu@email.com">
+        </div>
+        <div class="field">
+          <label for="whatsapp">Número de WhatsApp</label>
+          <input id="whatsapp" name="whatsapp" type="tel" required placeholder="(00) 00000-0000">
+        </div>
+        <div class="modal-actions">
+          <button class="button" type="submit">Enviar e entrar na comunidade</button>
+          <button class="button close-btn" type="button" id="close-modal">Cancelar</button>
+        </div>
+        <p class="status" id="form-status"></p>
+      </form>
+    </div>
+  </div>
+
   <script>
+    const modal = document.getElementById('modal');
+    const form = document.getElementById('inscricao-form');
+    const statusEl = document.getElementById('form-status');
+    const closeBtn = document.getElementById('close-modal');
+    const WHATSAPP_URL = 'https://chat.whatsapp.com/CqqhNrNCA2qGePNGpZ9gnt';
+    const isLocal = ['localhost','127.0.0.1',''].includes(window.location.hostname);
+    const API_URL = isLocal
+      ? 'http://localhost:8080/api/public/forms/limiar-jornada/submissions'
+      : 'https://form.ralecram.com.br/api/public/forms/o-inicio-da-travessia-um-guia-de-autoconhecimento-para-viver/submissions';
+
+    function openModal() { modal.classList.add('is-open'); }
+    function closeModal() { modal.classList.remove('is-open'); }
+
+    document.querySelectorAll('[data-open-modal]').forEach((btn) => {
+      btn.addEventListener('click', openModal);
+    });
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    function gerarChave() {
+      if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+      return 'id_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      const whatsapp = document.getElementById('whatsapp').value.trim();
+      if (!email || !whatsapp) return;
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      statusEl.textContent = 'Enviando...';
+
+      try {
+        await fetch(API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            idempotencyKey: gerarChave(),
+            answers: isLocal
+              ? [
+                  { questionKey: 'q_email', text: email },
+                  { questionKey: 'q_whatsapp', text: whatsapp }
+                ]
+              : [
+                  { questionKey: 'q_8650a87cf2dd', text: email },
+                  { questionKey: 'q_550af6830f78', text: (whatsapp.match(/\d/g) || []).join('') }
+                ]
+          })
+        });
+      } catch (err) {
+        // Ignora falhas de rede/CORS e segue para o WhatsApp.
+      }
+
+      statusEl.textContent = 'Redirecionando...';
+      window.location.href = WHATSAPP_URL;
+    });
+
     (function(){
       const elDays = document.getElementById('c-days');
       const elHours = document.getElementById('c-hours');
