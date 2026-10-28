@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="LIMIAR — O início da travessia. Um guia de autoconhecimento para viver com mais consciência. Comunidade Limiar conduzida por Marcela.">
-  <title>LIMIAR | O início da travessia</title>
+  <meta name="description" content="Comunidade Limiar — um espaço de autoconhecimento, espiritualidade e prática consciente, conduzido por Marcela. Entre e tenha acesso a tudo.">
+  <title>Comunidade Limiar | O início da travessia</title>
   <style>
     :root {
       --bg: #0a0a0f;
@@ -26,7 +26,6 @@
       font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
       line-height: 1.75;
       min-height: 100vh;
-      padding-top: 56px;
     }
     h1, h2, h3 { font-family: "Georgia", "Times New Roman", serif; letter-spacing: -.01em; line-height: 1.12; margin: 0 0 16px; color: #ffffff; }
     h1 { font-size: clamp(2.8rem, 7vw, 4.6rem); }
@@ -50,20 +49,49 @@
     .button--ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); box-shadow: none; }
     .button-wrap { display: flex; justify-content: center; margin-top: 30px; flex-wrap: wrap; gap: 12px; }
     .hero { padding: clamp(70px, 11vw, 130px) 0 60px; text-align: center; }
-    .hero .quote { max-width: 660px; margin: 30px auto 0; font-style: italic; color: var(--text); font-size: 1.08rem; }
-    .hero .quote cite { display: block; margin-top: 10px; font-style: normal; color: var(--muted); font-size: .88rem; }
+    .hero .container { display: flex; flex-direction: column; align-items: center; }
     .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; margin-bottom: 20px; backdrop-filter: blur(6px); }
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 72px); align-items: center; }
     .photo { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center; border-radius: var(--radius); border: 1px solid var(--border); background: var(--bg); }
-    .question { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); }
-    .question:last-child { border-bottom: 0; }
-    .prompt { color: var(--muted); font-size: .95rem; margin: 6px 0 0; font-style: italic; }
-    .writing-space {
-      min-height: 110px; margin-top: 14px; border-radius: 10px;
-      background: linear-gradient(to bottom, transparent 95%, rgba(255,255,255,.12) 95%);
-      background-size: 100% 1.75rem; border: 1px solid var(--border);
-    }
     .disclaimer { font-size: .85rem; color: var(--muted); text-align: center; margin-top: 26px; }
+    .feature { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 14px; }
+    .feature .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; margin-top: 6px; box-shadow: 0 0 12px rgba(212,176,106,.5); }
+    .feature p { margin: 0; color: var(--text); font-size: 1.02rem; }
+    .feature p b { color: var(--text); }
+    .stack { display: flex; flex-direction: column; gap: 16px; }
+    .gift { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; display: flex; flex-direction: column; gap: 10px; margin-top: 8px; text-align: center; max-width: 470px; width: 100%; }
+    .gift ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; margin: 0; }
+    .gift li { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--muted); }
+    .gift li::before { content: "✓"; color: var(--accent); }
+    .pain ul { list-style: none; padding: 0; border-top: 1px solid var(--border); margin: 0; }
+    .pain li { padding: 16px 0 16px 32px; position: relative; border-bottom: 1px solid var(--border); color: var(--muted); }
+    .pain li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+    .turn { font-family: "Georgia", "Times New Roman", serif; font-size: 1.5rem; line-height: 1.35; margin-top: 12px; color: var(--text); }
+    .turn strong { color: var(--accent); }
+    .items { display: grid; gap: 14px; }
+    .item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; display: flex; flex-direction: column; gap: 6px; min-width: 0; backdrop-filter: blur(6px); }
+    .tag { font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .ph { background: rgba(212,176,106,.12); border: 1px dashed var(--accent); border-radius: 6px; padding: 1px 6px; color: var(--accent); font-size: .85rem; }
+    @media (min-width: 640px) { .items { grid-template-columns: 1fr 1fr; } }
+    .author { display: grid; gap: 30px; align-items: center; }
+    @media (min-width: 700px) { .author { grid-template-columns: 240px 1fr; } }
+    .quote { font-family: "Georgia", "Times New Roman", serif; font-style: italic; font-size: 1.35rem; color: var(--muted); max-width: 28em; margin: 0 auto; }
+    .quote cite { display: block; font-family: "Inter", ui-sans-serif, system-ui, sans-serif; font-style: normal; font-size: .8rem; margin-top: 10px; letter-spacing: .04em; color: var(--muted); }
+    .top-header {
+      background: var(--accent);
+      color: #1a150c;
+      font-weight: 800;
+      letter-spacing: .05em;
+      font-size: .85rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 60;
+    }
+    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; text-align: center; }
+    .top-date { font-variant-numeric: tabular-nums; }
+    .countdown { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
+    .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
+    .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
     .modal-backdrop {
       position: fixed; inset: 0; background: rgba(0,0,0,.7);
       display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px;
@@ -85,21 +113,10 @@
     .close-btn { background: transparent; border: 1px solid var(--border); color: var(--muted); }
     .status { font-size: .88rem; color: var(--muted); margin-top: 10px; min-height: 18px; }
     footer { padding: 30px 0; text-align: center; font-size: .82rem; color: var(--muted); border-top: 1px solid var(--border); }
-    .top-header {
-      background: var(--accent);
-      color: #1a150c;
-      font-weight: 800;
-      letter-spacing: .05em;
-      font-size: .85rem;
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 60;
-    }
-    .top-header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding: 6px 20px; max-width: none; text-align: center; }
-    .top-date { font-variant-numeric: tabular-nums; }
-    .countdown { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; }
-    .c-value { font-variant-numeric: tabular-nums; font-weight: 900; font-size: 1rem; }
-    .c-label { font-size: .68rem; opacity: .85; text-transform: uppercase; letter-spacing: .05em; }
+    .sticky { position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; padding: 14px max(16px, env(safe-area-inset-left,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-right,0px)); background: linear-gradient(0deg, var(--bg) 65%, rgba(10,10,15,0)); }
+    .sticky .button { width: 100%; text-align: center; }
+    @media (min-width: 720px) { .sticky { display: none; } }
+    .err { color: #e8a28a; font-size: .85rem; }
     @media (max-width: 600px) {
       body { padding-top: 80px; }
       .two-col { grid-template-columns: 1fr; }
@@ -107,78 +124,76 @@
       .countdown { gap: 6px; }
       .c-value { font-size: 0.9rem; }
       .c-label { font-size: 0.6rem; }
-      .modal {
-        padding: 20px;
-        width: 92%;
-        max-height: 88vh;
-        overflow-y: auto;
-      }
-      .modal-actions {
-        flex-direction: column;
-      }
-      .modal-actions .button {
-        flex: none;
-        width: 100%;
-        min-height: 48px;
-      }
+      .modal { padding: 20px; width: 92%; max-height: 88vh; overflow-y: auto; }
+      .modal-actions { flex-direction: column; }
+      .modal-actions .button { flex: none; width: 100%; min-height: 48px; }
       .close-btn { width: 100%; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <header class="top-header">
-    <div class="container">
-      <span class="top-date">29/11</span>
-      <div class="countdown">
-        <span class="c-value" id="c-days">00</span><span class="c-label">dias</span>
-        <span class="c-value" id="c-hours">00</span><span class="c-label">horas</span>
-        <span class="c-value" id="c-minutes">00</span><span class="c-label">min</span>
-        <span class="c-value" id="c-seconds">00</span><span class="c-label">seg</span>
-      </div>
-    </div>
-  </header>
-
   <main>
     <section class="hero">
       <div class="container">
-        <span class="eyebrow">Comunidade Limiar</span>
-        <h1>LIMIAR</h1>
-        <p class="lead center" style="margin-inline:auto">Este é o lugar onde tudo acontece. Dentro da comunidade você encontra os guias, encontros, conteúdos e o acolhimento para viver com mais consciência no seu ritmo, com presença.</p>
-        <p class="quote">“Uma vida não examinada não vale a pena ser vivida.”<cite>— Sócrates, conforme registrado na Apologia de Sócrates, de Platão.</cite></p>
-        <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Quero entrar na comunidade Limiar <span aria-hidden="true">→</span></button>
+        <span class="eyebrow">Comunidade gratuita · Autoconhecimento</span>
+        <h1>Pare de repetir os mesmos padrões sem entender por quê.</h1>
+        <p class="lead center" style="margin-inline:auto">Entre na <strong style="color:var(--accent)">Comunidade Limiar gratuita</strong> e receba o <strong style="color:var(--accent)">Guia Limiar</strong>: 5 exercícios para enxergar os padrões, crenças e expectativas que estão escolhendo por você. Faça em 1 hora, no seu ritmo.</p>
+        <div class="gift">
+          <span class="eyebrow">De presente ao entrar</span>
+          <ul>
+            <li>Guia Limiar em PDF, com 5 exercícios práticos</li>
+            <li>Desafio de 7 dias conduzido pela Marcela</li>
+          </ul>
         </div>
+        <div class="button-wrap">
+          <button class="button" type="button" data-open-modal>Quero entrar grátis e receber o guia →</button>
+        </div>
+        <p class="disclaimer" style="margin-top:10px">100% gratuito. Você entra pelo WhatsApp.</p>
       </div>
     </section>
 
-    <section class="section center">
+    <section class="section pain">
       <div class="container">
-        <span class="eyebrow">O que você encontra aqui dentro</span>
-        <h2>Tudo o que apoia a sua travessia.</h2>
-        <p class="lead" style="margin-inline:auto">A comunidade é o ponto de encontro. É onde os materiais são liberados, os encontros acontecem e você caminha ao lado de quem também está despertando.</p>
-        <div class="card">
-          <div class="feature"><span class="dot"></span><p><b>Guias e conteúdos</b> de autoconhecimento e espiritualidade, disponibilizados primeiro para quem está na comunidade.</p></div>
-          <div class="feature"><span class="dot"></span><p><b>Encontros ao vivo</b> com Marcela para tirar dúvidas, meditar junto e integrar o que foi aprendido.</p></div>
-          <div class="feature"><span class="dot"></span><p><b>Um espaço seguro</b> para compartilhar suas descobertas sem julgamento, com pessoas que falam a mesma língua.</p></div>
+        <span class="eyebrow">Talvez você esteja nesse ponto</span>
+        <h2>Algo mudou, e o que antes parecia óbvio já não parece.</h2>
+        <ul>
+          <li>Você percebe que reage sempre do mesmo jeito, com pessoas diferentes.</li>
+          <li>Faz muita coisa por hábito, medo ou para agradar, e sente que se afastou de quem é.</li>
+          <li>Começou a questionar o que antes aceitava, mas não sabe por onde começar.</li>
+        </ul>
+        <p class="turn">Isso não é estar perdida. É o <strong>limiar</strong>: o momento em que você começa a acordar. O que falta é um caminho e companhia para atravessá-lo.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container center">
+        <span class="eyebrow">O que você recebe</span>
+        <h2>Dentro da comunidade</h2>
+        <div class="items">
+          <div class="item"><span class="tag">Assim que entrar</span><h3>O Guia Limiar</h3><p>5 exercícios guiados: onde você está, seu piloto automático, as histórias em que você acredita, o que já não faz sentido e uma nova escolha.</p></div>
+          <div class="item"><span class="tag">A partir de 29/11</span><h3>Desafio de 7 dias</h3><p>Um passo por dia, direto no grupo, para transformar o que você descobrir em prática.</p></div>
+          <div class="item"><span class="tag"><span class="ph">frequência, ex.: toda quinta, 20h</span></span><h3>Encontros ao vivo com a Marcela</h3><p>Para tirar dúvidas, meditar junto e integrar o que foi vivido.</p></div>
+          <div class="item"><span class="tag">Sempre</span><h3>Um espaço seguro</h3><p>Compartilhe suas descobertas sem julgamento, com pessoas que estão na mesma travessia.</p></div>
         </div>
         <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Entrar na comunidade agora <span aria-hidden="true">→</span></button>
+          <button class="button" type="button" data-open-modal>Quero meu guia e minha vaga no desafio →</button>
         </div>
       </div>
     </section>
 
-    <section class="section section--alt" style="--bg: rgba(255,255,255,.025);">
+    <section class="section">
       <div class="container two-col">
         <div>
           <img class="photo" src="marcela.png" alt="Foto de Marcela, guia da Comunidade Limiar">
         </div>
         <div>
-          <span class="eyebrow">Quem vai te receber</span>
-          <h2>Quem sou eu?</h2>
-          <h3>Marcela</h3>
+          <span class="eyebrow">Quem conduz</span>
+          <h2>Prazer, eu sou a Marcela.</h2>
+          <p><span class="ph">História: "Há X anos eu vivia no automático, cumprindo expectativas que nem eram minhas, até que…"</span></p>
+          <p><span class="ph">Autoridade: "Desde então estudo e pratico autoconhecimento e espiritualidade, e já acompanhei X pessoas nesse processo."</span></p>
           <p>Criei a Comunidade Limiar porque acredito que o autoconhecimento não se faz sozinho. Ele precisa de um lugar onde possa ser compartilhado, praticado e integrado ao dia a dia.</p>
           <p>Aqui dentro é onde disponibilizo tudo o que desenvolvo: guias, encontros, conteúdos e o acolhimento que eu mesma gostaria de ter quando comecei a me olhar com honestidade.</p>
-          <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas e decidir, com mais consciência, quem você quer ser.</p>
+          <p>Não é sobre chegar a uma resposta definitiva. É sobre ter um espaço para observar as perguntas — e decidir, com mais consciência, quem você quer ser.</p>
           <div class="button-wrap" style="justify-content: flex-start;">
             <button class="button" type="button" data-open-modal>Quero entrar na comunidade <span aria-hidden="true">→</span></button>
           </div>
@@ -188,11 +203,11 @@
 
     <section class="section center">
       <div class="container">
-        <span class="eyebrow">Seu próximo passo</span>
-        <h2>Entre quem você foi e quem escolhe ser.</h2>
-        <p class="lead" style="margin-inline:auto">Toda travessia começa quando você decide olhar para dentro. A comunidade está aberta.</p>
+        <p class="quote">“Uma vida não examinada não vale a pena ser vivida.”<cite>— Sócrates, conforme registrado na Apologia de Sócrates, de Platão.</cite></p>
+        <h2 style="margin-top:32px">Entre quem você foi e quem escolhe ser.</h2>
+        <p class="lead" style="margin-inline:auto">O desafio começa em <strong style="color:var(--accent)">29/11</strong>. Entre agora, receba seu guia e faça os exercícios antes de começarmos juntas.</p>
         <div class="button-wrap">
-          <button class="button" type="button" data-open-modal>Entrar na Comunidade Limiar <span aria-hidden="true">→</span></button>
+          <button class="button" type="button" data-open-modal>Entrar na Comunidade Limiar (grátis) →</button>
         </div>
         <p class="disclaimer">A Comunidade Limiar é um espaço de autoconhecimento e prática consciente. Não substitui acompanhamento psicológico ou médico.</p>
       </div>
@@ -201,10 +216,12 @@
 
   <footer>
     <div class="container">
-      <p>LIMIAR — O início da travessia</p>
-      <p>Um guia de autoconhecimento para viver com mais consciência.</p>
+      <p>Comunidade Limiar · Conduzido por Marcela</p>
+      <p>Autoconhecimento · Consciência · Presença</p>
     </div>
   </footer>
+
+  <div class="sticky"><button class="button" type="button" data-open-modal>Quero entrar grátis →</button></div>
 
   <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
     <div class="modal">
@@ -289,32 +306,6 @@
       window.location.href = WHATSAPP_URL;
     });
 
-    (function(){
-      const elDays = document.getElementById('c-days');
-      const elHours = document.getElementById('c-hours');
-      const elMins = document.getElementById('c-minutes');
-      const elSecs = document.getElementById('c-seconds');
-      function update(){
-        const now = new Date();
-        let target = new Date(now.getFullYear(), 10, 29);
-        if (now > target) target = new Date(now.getFullYear() + 1, 10, 29);
-        const diff = target - now;
-        if (diff <= 0) {
-          elDays.textContent='00'; elHours.textContent='00'; elMins.textContent='00'; elSecs.textContent='00';
-          return;
-        }
-        const d = Math.floor(diff / (1000*60*60*24));
-        const h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-        const m = Math.floor((diff % (1000*60*60)) / (1000*60));
-        const s = Math.floor((diff % (1000*60)) / 1000);
-        elDays.textContent = String(d).padStart(2,'0');
-        elHours.textContent = String(h).padStart(2,'0');
-        elMins.textContent = String(m).padStart(2,'0');
-        elSecs.textContent = String(s).padStart(2,'0');
-      }
-      update();
-      setInterval(update, 1000);
-    })();
   </script>
 </body>
 </html>
